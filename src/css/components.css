@@ -824,7 +824,7 @@
 @media (max-width: 992px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
   .contact-grid {
     grid-template-columns: 1fr;
@@ -855,17 +855,26 @@
   }
   .site-header {
     top: 0.5rem;
-    margin-bottom: -3.5rem;
+    margin-bottom: -3rem;
   }
   .header-island {
-    padding: 0.5rem 1rem;
+    padding: 0.45rem 0.85rem 0.45rem 1rem;
+  }
+  .brand-logo-text {
+    font-size: 1.05rem;
+  }
+  .brand-logo-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
   }
   .mobile-bottom-bar {
     display: block;
-    padding-bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    z-index: 99;
   }
   body {
-    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)); /* Space for fixed bottom bar */
+    padding-bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px)); /* Safe space for fixed bottom bar */
   }
   .footer-grid {
     grid-template-columns: 1fr;
@@ -873,10 +882,10 @@
     margin-bottom: 2.5rem;
   }
   .section-hero {
-    padding-top: clamp(5rem, 12vw, 6.5rem);
+    padding-top: clamp(4.5rem, 10vw, 5.75rem);
   }
   .section-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.25rem;
   }
   .faq-question-btn {
     padding: 1.15rem 1.25rem;
@@ -895,26 +904,68 @@
 }
 
 @media (max-width: 640px) {
+  .eyebrow-badge {
+    padding: 0.28rem 0.75rem;
+    font-size: 0.72rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.75rem, 6.5vw, 2.35rem);
+    line-height: 1.16;
+    margin-bottom: 0.75rem;
+  }
+  .hero-content .lead-text {
+    font-size: clamp(0.95rem, 3.8vw, 1.025rem);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
   }
   .hero-actions .btn {
     width: 100%;
+    height: 54px;
+    min-height: 54px;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.98rem;
+  }
+  .btn-whatsapp {
+    height: 54px;
+    min-height: 54px;
+  }
+  .btn-secondary {
+    height: 54px;
+    min-height: 54px;
   }
   .hero-features-list {
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.65rem;
     align-items: flex-start;
+    margin-top: 1.25rem;
+    padding-top: 1.15rem;
+  }
+  .hero-feature-item {
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+  .hero-feature-icon {
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 0.72rem;
   }
   .farm-badge-floating {
     position: relative;
     bottom: auto;
     right: auto;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     width: 100%;
     justify-content: center;
+    padding: 0.6rem 1rem;
   }
   .gallery-filter-bar {
     gap: 0.4rem;
@@ -937,13 +988,13 @@
   }
 }
 
-/* Specific optimizations for narrow mobile screens (320px to 390px) */
+/* Specific optimizations for narrow mobile screens (320px to 480px) */
 @media (max-width: 480px) {
   .bezel-card-inner {
-    padding: 1.35rem 1rem;
+    padding: 1.25rem 1rem;
   }
   .bezel-card-sm-inner {
-    padding: 1rem 0.85rem;
+    padding: 0.95rem 0.8rem;
   }
   .brand-logo-text {
     font-size: 1rem;
@@ -954,7 +1005,7 @@
     font-size: 0.95rem;
   }
   .lead-text {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
   .product-card-footer {
     flex-direction: column;
@@ -963,10 +1014,17 @@
   }
   .product-card-footer .btn {
     width: 100%;
+    height: 50px;
+    min-height: 50px;
   }
   .mobile-nav-link {
     font-size: 1.4rem;
     padding: 0.5rem 0.85rem;
+  }
+  .mobile-bar-btn {
+    min-height: 48px;
+    font-size: 0.72rem;
+    padding: 0.45rem 0.25rem;
   }
   .lightbox-modal {
     padding: 0.75rem;
@@ -978,5 +1036,13 @@
     height: 2.25rem;
     font-size: 1.1rem;
   }
+}
+
+/* Netlify / Injected External Badge Protection */
+iframe[src*="netlify"],
+[data-netlify-deploy-status],
+.netlify-badge {
+  bottom: calc(5.75rem + env(safe-area-inset-bottom, 0px)) !important;
+  z-index: 80 !important;
 }
 

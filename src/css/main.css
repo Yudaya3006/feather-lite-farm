@@ -34,10 +34,10 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spacing Scale (Responsive Macro-whitespace) */
-  --section-py: clamp(3.25rem, 6vw, 6rem);
-  --section-py-lg: clamp(4.5rem, 8vw, 8.5rem);
+  --section-py: clamp(2.5rem, 5vw, 6rem);
+  --section-py-lg: clamp(3.5rem, 7vw, 8.5rem);
   --container-max-w: 1200px;
-  --container-px: clamp(1rem, 4vw, 1.5rem);
+  --container-px: clamp(1.125rem, 5vw, 1.5rem);
 
   /* Radii & Nested Concentric Math */
   --radius-pill: 9999px;
@@ -145,33 +145,33 @@ h1, h2, h3, h4, .font-serif {
 }
 
 h1 {
-  font-size: clamp(2rem, 5.5vw + 0.5rem, 4.25rem);
+  font-size: clamp(1.85rem, 5.5vw + 0.25rem, 4.25rem);
   font-weight: 500;
   letter-spacing: -0.025em;
 }
 
 h2 {
-  font-size: clamp(1.6rem, 3.8vw + 0.3rem, 2.85rem);
+  font-size: clamp(1.45rem, 3.8vw + 0.25rem, 2.85rem);
   font-weight: 500;
   letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2vw + 0.25rem, 1.75rem);
+  font-size: clamp(1.2rem, 2vw + 0.25rem, 1.75rem);
   font-weight: 500;
   letter-spacing: -0.015em;
 }
 
 p {
   color: var(--color-text-secondary);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 1.5vw + 0.5rem, 1.05rem);
+  line-height: 1.65;
 }
 
 .lead-text {
-  font-size: clamp(1.15rem, 1.5vw + 0.5rem, 1.35rem);
+  font-size: clamp(1rem, 2vw + 0.35rem, 1.35rem);
   color: var(--color-text-secondary);
-  line-height: 1.65;
+  line-height: 1.6;
   max-width: 65ch;
 }
 
