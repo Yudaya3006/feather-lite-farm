@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions | Feather Lite Farm</title>
+  <meta name="description" content="Find answers to common questions about buying fresh quail eggs, storage guidance, pack sizes, bulk ordering, and pickup in Erode, Tamil Nadu, India.">
+  <link rel="canonical" href="https://featherlitefarm.com/faq.html">
+
+  <meta property="og:title" content="Frequently Asked Questions | Feather Lite Farm">
+  <meta property="og:description" content="Questions about quail egg ordering, pack sizes, storage, and local pickup answered by Feather Lite Farm.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://featherlitefarm.com/faq.html">
+
+  <link rel="stylesheet" href="/src/css/main.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+</head>
+<body>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Dynamic Header -->
+  <div id="site-header-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="section section-hero">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="eyebrow-badge">Help & Information</div>
+          <h1>Frequently Asked Questions</h1>
+          <p class="lead-text" style="margin-left: auto; margin-right: auto;">
+            Have questions about ordering, package sizes, storage, or farm location? Browse our answers below or message us directly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full FAQ Accordions List -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div id="faq-page-list">
+          <!-- Dynamically populated by src/js/faq.js -->
+        </div>
+
+        <!-- Custom Question Callout -->
+        <div class="bezel-card reveal-on-scroll" style="margin-top: 4rem;">
+          <div class="bezel-card-inner" style="text-align: center; padding: 3.5rem 2rem;">
+            <div class="eyebrow-badge badge-terracotta">Still Have Questions?</div>
+            <h2>Ask Us Directly On WhatsApp</h2>
+            <p class="lead-text" style="margin: 0.75rem auto 1.75rem auto;">
+              Our farm team is happy to answer specific inquiries about current availability, delivery routes, or bulk ordering.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+              <a href="#" id="faq-whatsapp-btn" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                Chat With Us On WhatsApp
+                <span class="btn-icon-wrapper">💬</span>
+              </a>
+              <a href="contact.html" class="btn btn-secondary">
+                Submit An Inquiry Form
+                <span class="btn-icon-wrapper">📝</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile Bottom Bar -->
+  <div id="mobile-bottom-bar-container"></div>
+
+  <!-- Dynamic Footer -->
+  <div id="site-footer-container"></div>
+
+  <script type="module">
+    import './src/js/main.js';
+    import { renderFAQList } from './src/js/faq.js';
+    import { farmConfig } from './src/data/farmConfig.js';
+
+    function initPage() {
+      renderFAQList('faq-page-list', null);
+
+      const waBtn = document.getElementById('faq-whatsapp-btn');
+      if (waBtn && farmConfig && typeof farmConfig.getWhatsAppUrl === 'function') {
+        waBtn.href = farmConfig.getWhatsAppUrl("Hello Feather Lite Farm, I have a question about quail eggs.");
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPage);
+    } else {
+      initPage();
+    }
+  </script>
+</body>
+</html>

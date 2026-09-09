@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm & Quail Egg Gallery | Feather Lite Farm</title>
+  <meta name="description" content="View photos of Feather Lite Farm quail birds, fresh speckled quail eggs, collection routines, and packaging in Erode, Tamil Nadu, India.">
+  <link rel="canonical" href="https://featherlitefarm.com/gallery.html">
+
+  <meta property="og:title" content="Farm & Quail Egg Gallery | Feather Lite Farm">
+  <meta property="og:description" content="Photo gallery showcasing our quail flock, fresh eggs, packaging, and farm operations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://featherlitefarm.com/gallery.html">
+
+  <link rel="stylesheet" href="/src/css/main.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+</head>
+<body>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Dynamic Header -->
+  <div id="site-header-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="section section-hero">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div class="eyebrow-badge badge-terracotta">Visual Showcase</div>
+          <h1>Farm & Egg Gallery</h1>
+          <p class="lead-text" style="margin-left: auto; margin-right: auto;">
+            Explore photos of our quail flock, egg gathering, clean packaging, and farm environment. Click any image to open the full view.
+          </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="gallery-filter-bar reveal-on-scroll">
+          <button class="filter-btn active" data-filter="all">All Photos</button>
+          <button class="filter-btn" data-filter="birds">Quail Flock</button>
+          <button class="filter-btn" data-filter="eggs">Fresh Eggs</button>
+          <button class="filter-btn" data-filter="farm">Our Farm</button>
+          <button class="filter-btn" data-filter="packaging">Packaging</button>
+          <button class="filter-btn" data-filter="collection">Collection</button>
+          <button class="filter-btn" data-filter="culinary">Culinary</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Grid Section -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="gallery-grid" id="gallery-page-grid">
+          <!-- Dynamically populated by src/js/gallery.js -->
+        </div>
+
+        <div class="bezel-card reveal-on-scroll" style="margin-top: 4rem;">
+          <div class="bezel-card-inner" style="text-align: center; padding: 2.5rem 1.5rem;">
+            <p style="font-size: 0.95rem; color: var(--color-text-secondary);">
+              📸 <strong>Note for Farm Owner:</strong> The photo slots above are configured with a clean placeholder system. You can easily replace these placeholders with your real farm photos when ready!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
+    <div class="lightbox-content-bezel">
+      <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close Lightbox">✕</button>
+      <div class="lightbox-content-core">
+        <div id="lightbox-icon" style="font-size: 4rem; text-align: center; margin-bottom: 1rem;">🥚</div>
+        <h3 id="lightbox-title" style="text-align: center; margin-bottom: 0.5rem;">Photo Title</h3>
+        <p id="lightbox-desc" style="text-align: center; color: var(--color-text-secondary);">Photo description...</p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <span class="placeholder-tag">[PHOTO PLACEHOLDER]</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Bar -->
+  <div id="mobile-bottom-bar-container"></div>
+
+  <!-- Dynamic Footer -->
+  <div id="site-footer-container"></div>
+
+  <script type="module">
+    import './src/js/main.js';
+    import { renderGalleryGrid, initGalleryFilters } from './src/js/gallery.js';
+
+    function initPage() {
+      renderGalleryGrid('gallery-page-grid', false);
+      initGalleryFilters();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPage);
+    } else {
+      initPage();
+    }
+  </script>
+</body>
+</html>

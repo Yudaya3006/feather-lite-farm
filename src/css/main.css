@@ -1,0 +1,511 @@
+/* ==========================================================================
+   FEATHER LITE FARM — EDITORIAL LUXURY DESIGN SYSTEM (Taste Skill Adaptation)
+   Natural Earth Tones, Double-Bezel Architecture, Nested Island CTAs
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+  /* Editorial Luxury Color Tokens */
+  --color-bg-base: #FDFBF7;        /* Warm Cream / Soft Alabaster */
+  --color-bg-subtle: #F6F1E8;      /* Warm Oat background */
+  --color-bg-shell: #EFE8DC;       /* Outer bezel shell tint */
+  --color-card-core: #FFFFFF;      /* Clean inner bezel core */
+  --color-card-core-alt: #FAF7F2;  /* Tinted inner core */
+  
+  --color-border-hairline: #E3D9C9; /* Delicate hairline border */
+  --color-border-subtle: #ECE4D6;
+  --color-border-focus: #5A704E;
+
+  --color-text-primary: #2B231B;   /* Deep soil / espresso */
+  --color-text-secondary: #5C5044; /* Warm earth taupe */
+  --color-text-muted: #847668;     /* Soft slate taupe */
+  --color-text-inverse: #FFFFFF;
+
+  --color-accent-sage: #4E6548;    /* Muted leaf sage */
+  --color-accent-sage-dark: #3B4E36;
+  --color-accent-sage-tint: #E8EFE5;
+  --color-accent-terracotta: #A86343; /* Quail speckle clay */
+  --color-accent-terracotta-tint: #FBEFEA;
+  --color-accent-gold: #C59A4E;
+
+  /* Typography */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing Scale (Responsive Macro-whitespace) */
+  --section-py: clamp(3.25rem, 6vw, 6rem);
+  --section-py-lg: clamp(4.5rem, 8vw, 8.5rem);
+  --container-max-w: 1200px;
+  --container-px: clamp(1rem, 4vw, 1.5rem);
+
+  /* Radii & Nested Concentric Math */
+  --radius-pill: 9999px;
+  --radius-outer: 1.5rem;          /* 24px */
+  --radius-inner: 1.125rem;        /* 18px */
+  --radius-card-sm-outer: 1.125rem;
+  --radius-card-sm-inner: 0.75rem;
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 2px 8px -2px rgba(43, 35, 27, 0.05);
+  --shadow-md: 0 12px 24px -6px rgba(43, 35, 27, 0.07);
+  --shadow-lg: 0 24px 48px -12px rgba(43, 35, 27, 0.10);
+  --shadow-inner-glow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+
+  /* Physics & Easing */
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --transition-fast: 200ms var(--ease-spring);
+  --transition-smooth: 400ms var(--ease-spring);
+  --transition-slow: 700ms var(--ease-spring);
+}
+
+/* Base Reset & Box Model */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  background-color: var(--color-bg-base);
+}
+
+/* Subtle Fixed Film-Grain Overlay for Tactile Depth (GPU Safe) */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+  position: relative;
+}
+
+.section-hero {
+  padding-top: calc(var(--section-py) + 2.5rem);
+  padding-bottom: var(--section-py);
+}
+
+.section-bg-subtle {
+  background-color: var(--color-bg-subtle);
+}
+
+/* Responsive Image & Media Reset */
+img, svg, video, canvas, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-feature-settings: "liga" 1, "calt" 1;
+  color: var(--color-text-primary);
+  line-height: 1.18;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+h1 {
+  font-size: clamp(2rem, 5.5vw + 0.5rem, 4.25rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3.8vw + 0.3rem, 2.85rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw + 0.25rem, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+p {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.lead-text {
+  font-size: clamp(1.15rem, 1.5vw + 0.5rem, 1.35rem);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  max-width: 65ch;
+}
+
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent-sage-tint);
+  color: var(--color-accent-sage-dark);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid rgba(78, 101, 72, 0.15);
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow-badge.badge-terracotta {
+  background-color: var(--color-accent-terracotta-tint);
+  color: var(--color-accent-terracotta);
+  border-color: rgba(168, 99, 67, 0.2);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 4rem auto;
+}
+
+.section-header h2 {
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   DOUBLE-BEZEL ARCHITECTURE (Nested Core & Shell)
+   ========================================================================== */
+.bezel-card {
+  background-color: var(--color-bg-shell);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-outer);
+  padding: 0.5rem;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.bezel-card-inner {
+  background-color: var(--color-card-core);
+  border-radius: var(--radius-inner);
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-inner-glow), var(--shadow-sm);
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.bezel-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Double Bezel for Compact / Feature items */
+.bezel-card-sm {
+  background-color: var(--color-bg-shell);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-card-sm-outer);
+  padding: 0.35rem;
+}
+
+.bezel-card-sm-inner {
+  background-color: var(--color-card-core);
+  border-radius: var(--radius-card-sm-inner);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-inner-glow);
+}
+
+/* ==========================================================================
+   NESTED ISLAND CTA BUTTON SYSTEM (Unified 200ms Hover & Touch Architecture)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  line-height: 1;
+  transition: transform 200ms ease-out, 
+              background-color 200ms ease-out, 
+              border-color 200ms ease-out, 
+              color 200ms ease-out, 
+              box-shadow 200ms ease-out;
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Clear Focus-Visible Accessibility */
+.btn:focus-visible,
+.filter-btn:focus-visible,
+.mobile-bar-btn:focus-visible,
+.faq-question-btn:focus-visible,
+.lightbox-close-btn:focus-visible,
+.mobile-drawer-close:focus-visible {
+  outline: 2px solid var(--color-accent-sage-dark);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(78, 101, 72, 0.2);
+}
+
+/* Hover elevation & mass physics for fine pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Button Variant 1: Primary (Muted Sage) */
+.btn-primary {
+  background-color: var(--color-accent-sage);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent-sage);
+  box-shadow: 0 3px 10px rgba(78, 101, 72, 0.18);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background-color: var(--color-accent-sage-dark);
+    border-color: #2F402B;
+    color: var(--color-text-inverse);
+    box-shadow: 0 6px 18px rgba(43, 35, 27, 0.14);
+  }
+}
+
+/* Button Variant 2: WhatsApp (Fresh Natural Botanical Green) */
+.btn-whatsapp {
+  background-color: #5F9B63;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-color: #5F9B63;
+  box-shadow: 0 3px 10px rgba(95, 155, 99, 0.25);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-whatsapp:hover {
+    background-color: #528956;
+    border-color: #528956;
+    color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(43, 35, 27, 0.14);
+  }
+}
+
+/* Button Variant 3: Secondary (Subtle Cream Shell) */
+.btn-secondary {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-hairline);
+  box-shadow: 0 2px 6px rgba(43, 35, 27, 0.04);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-secondary:hover {
+    background-color: var(--color-bg-shell);
+    border-color: var(--color-accent-sage);
+    color: var(--color-accent-sage-dark);
+    box-shadow: 0 6px 18px rgba(43, 35, 27, 0.10);
+  }
+}
+
+/* Button Variant 4: Outline (Editorial Border) */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border-hairline);
+  box-shadow: 0 2px 6px rgba(43, 35, 27, 0.04);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-outline:hover {
+    background-color: var(--color-bg-subtle);
+    border-color: var(--color-accent-sage);
+    color: var(--color-accent-sage-dark);
+    box-shadow: 0 6px 18px rgba(43, 35, 27, 0.10);
+  }
+}
+
+/* The Nested Circular Icon Wrapper System */
+.btn-icon-wrapper {
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -0.5rem;
+  margin-left: 0.25rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  transition: transform 200ms ease-out, 
+              background-color 200ms ease-out, 
+              color 200ms ease-out;
+}
+
+.btn-primary .btn-icon-wrapper {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-inverse);
+}
+
+.btn-whatsapp .btn-icon-wrapper {
+  background-color: #70A973;
+  color: #FFFFFF;
+}
+
+.btn-secondary .btn-icon-wrapper,
+.btn-outline .btn-icon-wrapper {
+  background-color: rgba(43, 35, 27, 0.08);
+  color: var(--color-text-primary);
+}
+
+/* Unified Icon Motion on Button Hover */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover .btn-icon-wrapper {
+    transform: translateX(3px) scale(1.05);
+  }
+  
+  .btn-primary:hover .btn-icon-wrapper {
+    background-color: rgba(255, 255, 255, 0.32);
+    color: var(--color-text-inverse);
+  }
+
+  .btn-whatsapp:hover .btn-icon-wrapper {
+    background-color: #5F9B63;
+    color: #FFFFFF;
+  }
+
+  .btn-secondary:hover .btn-icon-wrapper,
+  .btn-outline:hover .btn-icon-wrapper {
+    background-color: var(--color-accent-sage-tint);
+    color: var(--color-accent-sage-dark);
+  }
+}
+
+/* Placeholder Pill Tag (Clear & Dignified) */
+.placeholder-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background-color: #F3EBDD;
+  color: #796652;
+  font-family: monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 0.35rem;
+  border: 1px dashed #C9BBA5;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   CLICKABLE PLAIN-TEXT CONTACT LINKS
+   ========================================================================== */
+.contact-link {
+  color: #5F9B63;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 200ms ease-out, transform 200ms ease-out;
+  will-change: color, transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-link:hover {
+    color: #4F8653;
+    text-decoration: none;
+    transform: translateX(2px);
+  }
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid #5F9B63;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL & ACCESSIBILITY (Progressive Enhancement)
+   ========================================================================== */
+.reveal-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 700ms var(--ease-spring), transform 700ms var(--ease-spring);
+  will-change: opacity, transform;
+}
+
+html.js-reveal .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+html.js-reveal .reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  html.js-reveal .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Accessibility Focus States */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-accent-sage);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
